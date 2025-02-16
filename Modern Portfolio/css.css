@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Dela+Gothic+One&family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html.has-scroll-smooth {
+    overflow: hidden;
+    position: fixed;
+    inset: 0;
+}
+
+body {
+    background: #2C3E50;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+}
+
+main {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    margin: 20px 100px;
+    width: calc(100% - 200px);
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+}
+
+nav .logo {
+    margin-right: auto;
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.container {
+    margin: 0 100px;
+    width: calc(100% - 200px);
+    position: relative;
+}
+
+section {
+    height: 130vh;
+    position: relative;
+    margin-top: 40px;
+}
+
+.mask {
+    visibility: hidden;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile {
+    width: 40vw;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text {
+    top: 10%;
+    position: absolute;
+    z-index: 10;
+    font-family: "Dela Gothic One", sans-serif;
+}
+
+.text h2 {
+    font-size: 100px;
+    color: #ff6b6b;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.text p {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-left: 60px;
+    color: #A29BFE;
+}
+
+.about {
+    position: absolute;
+    bottom: -5%;
+    width: 40%;
+    left: 20%;
+    font-size: 20px;
+}
+
+.about p {
+    line-height: 1.8;
+    margin-right: 100px;
+    margin-left: -100px;
+    color: #fff;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.projects {
+    margin-top: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.heading {
+    position: absolute;
+    top: -200px;
+    right: 0;
+}
+
+.heading h3 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: "Dela Gothic One", sans-serif;
+    font-weight: lighter;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.heading .bar {
+    display: inline-block;
+    width: 100px;
+    height: 2px;
+    background: #fff;
+    margin-right: 20px;
+}
+
+.project {
+    width: 40vw;
+}
+
+.project img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.project:nth-child(odd) {
+    margin-left: auto;
+}
+
+.contact {
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.contact p {
+    width: 40%;
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+.contact a {
+    font-size: 30px;
+    font-family: "Dela Gothic One", sans-serif;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+
+.contact a i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+}
+
+.contact a::before {
+    content: "";
+    width: 80%;
+    height: 20px;
+    background: #c394a0;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+
+footer {
+    width: 100vw;
+    margin-top: 100px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 20px 100px;
+}
+
+.heading-footer span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.heading-footer p {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    gap: 70px;
+    font-family: "Dela Gothic One", sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.footer p:last-child {
+    text-align: center;
+}

@@ -1,0 +1,160 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nature's Horizon</title>
+  <link rel="stylesheet" href="css.css" />
+  <script src="https://kit.fontawesome.com/b9c8d03355.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <nav class="w-[100%] flex justify-around pt-[1.2em] text-xl font-semibold text-white z-10">
+    <a href="">ABOUT</a>
+    <a href="">EXPLORE</a>
+    <a href=""><i class="fa-solid fa-location-dot text-3xl"></i></a>
+    <a href="">JOURNAL</a>
+    <a href="">SEARCH</a>
+  </nav>
+  <div class="text z-10 absolute top-[30%] left-[50%] -translate-x-[50%] text-white flex items-center flex-col">
+    <h1 class="text-7xl pb-4 title">Nature's Horizon</h1>
+    <p class="text-xl pb-10 comment">
+      Embrace the wild. Explore the unknown.
+    </p>
+    <button class="w-20 h-20 border-2 rounded-full flex justify-center items-center btn">
+      <i class="fa-solid fa-play text-4xl"></i>
+    </button>
+  </div>
+  <div class="main">
+    <img src="images/1.avif" alt="" class="iamge-fit" />
+  </div>
+  <section>
+    <div class="bg-[#000508] flex flex-col items-center">
+      <div class="bit text-white flex flex-col items-center justify-center">
+        <h2 class="text-4xl mt-8">Discover New Horizons</h2>
+        <p class="text-xl mt-4 mb-10 w-[50%] p-auto text-center">
+          Our mission is to bring you the most immersive stories from
+          explorers, nature lovers, and adventurers. We aim to inspire a deep
+          connection with nature and a passion for preserving the wild.
+        </p>
+      </div>
+      <div class="images1 images">
+        <div class="img onee relative origin-center">
+          <h3 class="h3">HIMALAYAS</h3>
+          <h4 class="h4">INDIA</h4>
+          <img src="images/himalayas.avif" alt="" class="one origin-center" />
+        </div>
+        <div class="img relative">
+          <h3 class="h3">HORSESHOE BEND</h3>
+          <h4 class="h4">UNITED STATES</h4>
+          <img src="images/horseshoe bend.avif" alt="" class="two" />
+        </div>
+        <div class="img relative">
+          <h3 class="h3">CANYON RIVER</h3>
+          <h4 class="h4">UNITED STATES</h4>
+          <img src="images/canyon river.avif" alt="" class="three" />
+        </div>
+      </div>
+      <a href="" class="text-blue-900">SEE MORE</a>
+    </div>
+    <div class="bg-[#000508] flex flex-col items-center">
+      <div class="bit text-white flex flex-col items-center justify-center">
+        <h2 class="text-4xl mt-8">Adventure Chronicles</h2>
+        <p class="text-xl mt-4 mb-10 w-[80%] p-auto text-center">
+          Explore inspiring stories and insider tips for enjoying and
+          safeguarding the world's natural wonders.
+        </p>
+      </div>
+      <div class="images">
+        <div class="img flex flex-col items-center">
+          <img src="images/wander through wooods.avif" alt="" class="img2" />
+          <h2 class="text-white text-xl pt-4">MAY 30, 2024</h2>
+          <h2 class="text-white text-2xl pt-2 font-bold">
+            Journey Through the Forest: The Road Less Traveled
+          </h2>
+        </div>
+        <div class="img flex flex-col items-center">
+          <img src="images/bridge.avif" alt="" class="img2" />
+          <h2 class="text-white text-xl pt-4">JULY 21, 2024</h2>
+          <h2 class="text-white text-2xl pt-2 font-bold">
+            Golden Gate Adventures: Urban Meets Nature
+          </h2>
+        </div>
+      </div>
+      <a href="" class="text-blue-900 mb-8">SEE MORE</a>
+    </div>
+  </section>
+  <div class="mainn relative">
+    <p class="absolute text-white bottom-[5%] left-[50%] -translate-x-[50%]">
+      &copy;2024 NATURE'S HORIZAN.&nbsp; All rights reserved &nbsp;&nbsp;
+      |&nbsp; &nbsp; ABOUT &nbsp;&nbsp; EXPLORE&nbsp; &nbsp; JOURNAL&nbsp;
+      &nbsp; SEARCH
+    </p>
+    <img src="images/2.jpg" alt="" class="h-[100%] w-[100%] object-cover img2" />
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from(".title", {
+    y: -100,
+    opacity: 0,
+    duration: 1,
+  });
+  gsap.from(".comment", {
+    y: 100,
+    opacity: 0,
+    duration: 1,
+  });
+  gsap.from(".btn", {
+    opacity: 0,
+    delay: 1,
+    duration: 1,
+  });
+  gsap.from(".one", {
+    x: -200,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".images1",
+      start: "top 75%",
+      end: "bottom 20%",
+    },
+  });
+  gsap.from(".three", {
+    x: 200,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".images1",
+      start: "top 75%",
+      end: "bottom 20%",
+    },
+  });
+  gsap.from(".two", {
+    scale: 0,
+    opacity: 0,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".images1",
+      start: "top 75%",
+      end: "bottom 20%",
+    },
+  });
+  gsap.from("nav", { y: -100, opacity: 0, duration: 1 });
+
+  document.querySelector(".one").addEventListener("mouseenter", () => {
+    gsap.to(".onee", { scale: 1.1, duration: 0.3 });
+    gsap.to(".two", { scale: 0.9, duration: 0.3 });
+    gsap.to(".three", { scale: 0.9, duration: 0.3 });
+  });
+  document.querySelector(".one").addEventListener("mouseleave", () => {
+    gsap.to(".onee", { scale: 1, duration: 0.3 });
+    gsap.to(".two", { scale: 1, duration: 0.3 });
+    gsap.to(".three", { scale: 1, duration: 0.3 });
+  });
+</script>
+
+</html>

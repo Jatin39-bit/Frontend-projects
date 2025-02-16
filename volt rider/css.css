@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-kaushan {
+    font-family: 'Kaushan Script', sans-serif;
+}
+.social{
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    z-index: 10;
+    font-size: 1.3rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.social .bar{
+    width: 1px;
+    height: 280px;
+    background: #fff;
+    margin-bottom: 60px;
+}
+
+.social a{
+    color: #fff;
+    transform: rotate(-90deg);
+}
+.swiper-pagination{
+    position: absolute;
+    right: 40px !important;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:auto;
+}
+
+.swiper-pagination-bullet{
+    padding: 20px;
+    border: 2px solid white;
+    background: none !important;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    opacity: 0.5;
+    display: grid !important;
+    place-content: center;
+    transition: opacity 0.3s ease;
+}
+
+
+.swiper-pagination-bullet-active{
+    opacity: 1;
+    font-size: 20px;
+}
+

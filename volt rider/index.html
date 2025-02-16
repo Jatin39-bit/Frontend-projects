@@ -1,0 +1,163 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Volt Rider</title>
+  <script src="https://kit.fontawesome.com/b9c8d03355.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <main>
+    <div class="logo text-[4rem] font-semibold absolute z-10 top-6 left-12 text-white font-kaushan">
+      Volt Rider
+    </div>
+    <div class="social absolute left-12 bottom-12 text-[1.3rem]">
+      <div class="bar"></div>
+      <a href=""><i class="fab fa-facebook"></i></a>
+      <a href=""><i class="fab fa-instagram"></i></a>
+      <a href=""><i class="fab fa-twitter"></i></a>
+    </div>
+    <div
+      class="menu text-[2rem] font-semibold absolute z-10 top-12 right-12 border-2 border-white rounded-full h-12 w-12 flex justify-center items-center text-[#fff]">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide first">
+          <div class="left w-[40%] h-screen bg-red-900 absolute red"></div>
+          <div class="right w-[60.03%] h-screen bg-zinc-900 absolute right-0 bllack"></div>
+          <div class="content relative w-full h-full flex items-center justify-center text-white">
+            <div class="title absolute pb-[8em] text-[3.2vw] pr-[5.8em] font-kaushan">
+              Power Your Ride with
+            </div>
+            <div class="absolute pb-[.77em] text-[16vw] stagger tracking-tight">
+              <span>E</span><span>-</span><span>B</span><span>i</span><span>k</span><span>e</span><span>s</span>
+            </div>
+            <img src="images/pngwing.com.png" alt="" class="z-10 pt-[15em] w-[60%] h-auto image1" />
+          </div>
+          <div class="specs absolute bottom-[20px] text-[1.5rem] left-[40%] flex gap-16 text-white">
+            <span>106 MPH</span>
+            <span>0-100 KMPH</span>
+            <span>350 KW</span>
+            <button class="border-2 rounded-2xl px-4 text-[1.2rem]">
+              Discover More
+            </button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="left w-[40%] h-screen bg-purple-900 absolute"></div>
+          <div class="right w-[60.03%] h-screen bg-zinc-900 absolute right-0"></div>
+          <div class="content relative w-full h-full flex items-center justify-center text-white">
+            <div class="title absolute pb-[8em] text-[3.2vw] pr-[5.8em] font-kaushan">
+              Power Your Ride with
+            </div>
+            <div class="absolute pb-[.77em] text-[16vw] inline-block tracking-tight">
+              E-Bikes
+            </div>
+            <img src="images/sport.png" alt="" class="z-10 pt-[8em] w-[110%] max-w-[600px] h-auto" />
+          </div>
+          <div class="specs absolute bottom-[20px] text-[1.5rem] left-[40%] flex gap-16 text-white">
+            <span>106 MPH</span>
+            <span>0-100 KMPH</span>
+            <span>350 KW</span>
+            <button class="border-2 rounded-2xl px-4 text-[1.2rem]">
+              Discover More
+            </button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="left w-[40%] h-screen bg-green-900 absolute"></div>
+          <div class="right w-[60.03%] h-screen bg-zinc-900 absolute right-0"></div>
+          <div class="content relative w-full h-full flex items-center justify-center text-white">
+            <div class="title absolute pb-[8em] text-[3.2vw] pr-[5.8em] font-kaushan">
+              Power Your Ride with
+            </div>
+            <div class="absolute pb-[.77em] text-[16vw] tracking-tight">
+              E-Bikes
+            </div>
+            <img src="images/commuter.png" alt="" class="z-10 pt-[11em] w-[50%] h-auto" />
+          </div>
+          <div class="specs absolute bottom-[20px] text-[1.5rem] left-[40%] flex gap-16 text-white">
+            <span>106 MPH</span>
+            <span>0-100 KMPH</span>
+            <span>350 KW</span>
+            <button class="border-2 rounded-2xl px-4 text-[1.2rem]">
+              Discover More
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script>
+    const swiper = new Swiper(".swiper", {
+      // Optional parameters
+      direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      speed: 1200,
+      mousewheel: {
+        sensitivity: 0.5,
+      },
+      effect: "coverflow",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+
+      // If we need pagination
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<span class="${className}"><span>${String(
+            index + 1
+          ).padStart(2, "0")}</span></span>`;
+        },
+      },
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowDown") {
+        swiper.slideNext(); // Go to the next slide
+      } else if (event.key === "ArrowUp") {
+        swiper.slidePrev(); // Go to the previous slide
+      }
+    });
+
+    gsap.from(".red", {
+      y: -1000,
+      duration: 1.5,
+    });
+    gsap.from(".bllack", {
+      y: 1000,
+      duration: 1.5,
+    });
+    gsap.from(".image1", {
+      x: -3000,
+      duration: 1.5,
+    });
+    gsap.from(".stagger  span", {
+      y: -100,
+      opacity: 0,
+      stagger: 0.2,
+      delay: 1.6,
+    });
+  </script>
+</body>
+
+</html>

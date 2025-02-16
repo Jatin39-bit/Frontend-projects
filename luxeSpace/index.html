@@ -1,0 +1,137 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxeSpace</title>
+  <link rel="stylesheet" href="css.css" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h2>LuxeSpace</h2>
+      <ul>
+        <li>
+          <p>Collections</p>
+          <p>Features</p>
+          <p>Contact</p>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <div class="container">
+      <div class="part1">
+        <h1><span>Design</span> <span>Your</span> <span>Space</span></h1>
+        <br />
+        <h1><span>with</span> <span>Luxe</span></h1>
+        <br />
+        <p>
+          Explore modern, luxurious furniture tailored to your aesthetic
+          needs.
+        </p>
+        <button class="btn">Explore Collections</button>
+      </div>
+      <div class="part2">
+        <img src="" alt="Modern Furniture" />
+      </div>
+    </div>
+  </section>
+  <div class="collection">
+    <h1>Our Collections</h1>
+    <div class="images">
+      <div>
+        <img class="img" src="images/sofa.png" alt="" />
+        <h3>Luxury Sofas</h3>
+      </div>
+      <div>
+        <img class="img" src="images/chair.png" alt="" />
+        <h3>Modern Chairs</h3>
+      </div>
+      <div>
+        <img class="img" src="images/dining table.png" alt="" />
+        <h3>Elegant Tables</h3>
+      </div>
+      <div>
+        <img class="img" src="images/shelf.png" alt="" />
+        <h3>Wooden Shelves</h3>
+      </div>
+    </div>
+  </div>
+  <div class="container2">
+    <h1>Why Choose LuxeSpace?</h1>
+    <div class="content">
+      <h3>Comfort Meets Style</h3>
+      <p>
+        Every piece is crafted with the perfect blend of comfort and elegance.
+      </p>
+      <br />
+      <br />
+      <h3>Eco-Friendly Materials</h3>
+      <p>
+        We use sustainable materials to create beautiful, long-lasting
+        furniture.
+      </p>
+    </div>
+  </div>
+  <footer>
+    <div class="footer">
+      <h1>Get in Touch</h1>
+      <h3>Email: contact@luxespace.com | Phone: 91+ 1234567890</h3>
+    </div>
+  </footer>
+  <script>
+    const imgs = document.querySelectorAll(".img");
+    var tl = gsap.timeline();
+    tl.from(".part1 h1 span", {
+      opacity: 0,
+      stagger: 0.2,
+    }),
+      tl.from(".part1 p", {
+        opacity: 0,
+      }),
+      tl.from(".part1 .btn", {
+        opacity: 0,
+      });
+    imgs.forEach((img, index) => {
+      gsap.from(img, {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        delay: index * 0.1,
+        ease: "circ",
+      });
+    });
+
+    imgs.forEach((img) => {
+      img.addEventListener("mouseenter", () => {
+        gsap.to(img, { scale: 1.2, duration: 0.2, zIndex: 100 });
+      });
+    });
+
+    imgs.forEach((img) => {
+      img.addEventListener("mouseleave", () => {
+        gsap.to(img, { scale: 1, duration: 0.2, zIndex: 0});
+      });
+    });
+
+    document.querySelector(".footer h3").addEventListener("dblclick", () => {
+      const text = document.querySelector(".footer h3").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to Clipboard");
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="loading-page">
+        <div class="loader">
+            <div class="percentage">0%</div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <div class="content-page">
+        <div class="all">
+            <div class="background"></div>
+            <div class="container">
+                <div class="logo">Your Social App</div>
+                <div class="welcome-text">Join the community and connect with friends worldwide.</div>
+                <div class="cta-buttons">
+                    <button>Login</button>
+                    <button>Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        let percentageElement = document.querySelector('.percentage');
+        let loadingPage = document.querySelector('.loading-page');
+        let contentPage = document.querySelector('.content-page');
+
+        let percentage = 0;
+        let interval = setInterval(() => {
+            percentage += 1;
+            percentageElement.textContent = `${percentage}%`;
+
+            // When loading reaches 100%
+            if (percentage >= 100) {
+                clearInterval(interval);
+
+                // Transition from loading to content
+                gsap.to('.loading-page', {
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        loadingPage.style.display = 'none';
+                        contentPage.style.display = 'block';
+                        startTriangleAnimation();
+                    }
+                });
+            }
+        }, 10);
+
+        // GSAP animation for the triangles
+        function startTriangleAnimation() {
+            gsap.timeline()
+                .fromTo('.triangle-left', { x: 0 }, { x: '-100%', duration: 1.5, ease: 'power4.inOut' })
+                .fromTo('.triangle-right', { x: 0 }, { x: '100%', duration: 1.5, ease: 'power4.inOut' }, 0)
+                .fromTo('.site-title', { opacity: 0 }, { opacity: 1, duration: 1 }, '-=0.5');
+        }
+
+    </script>
+</body>
+
+</html>
