@@ -1,0 +1,207 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div class="w-full bg-zinc-900">
+        <div class="parent relative  h-[1400vh] w-full">
+            <div class="w-full h-screen sticky top-0 left-0 overflow-x-hidden">
+                <canvas class="w-full h-screen" id="canvas"></canvas>
+                <div class="absolute animate1 z-[2] text-white bottom-10 w-1/2 left-10">
+                    <h1 class="leading-20 font-[100] text-3xl">
+                        &copy; 2024 DOZE STD
+                    </h1>
+                    <h1  class="text-3xl">SHAPING BRANDS - CRAFTING MOTION</h1>
+                </div>
+                <div class="absolute animate2 text-2 flex z-[2] text-white bottom-10 w-1/2 right-10 text-right opacity-0">
+                    <h1 class="leading-20 font-[100] uppercase text-6xl">Transforming visions</h1>
+                    <h1 class="text-xl w-1/2">Building identity and inspiring action, Sculpting digital exp resonate</h1>
+                </div>
+                <div class="absolute animate3 text-3 z-[2] text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center opacity-0">
+                    <h1 class="leading-20 font-[100] uppercase text-6xl">elevating aesthetics</h1>
+                    <h1 class="text-xl ">Crafting solutions and exploring new horizons. Evolving narratives and elevating aesthetics in every project.</h1>
+                </div>
+                <div class="w-1/3 panel h-screen bg-white absolute right-0 top-0 z-[2] p-10 translate-x-full">
+                    <h3 class="panelelem text-xl font-[100]">2024 Doze.Std</h3>
+                    <p class="panelelem mt-10 text-xl">
+                        Sculpting digital
+                        Transforming visions inot digital realities. Weaving stories that captivate and innovate.
+                        Exploring new possibilites with a focus on narrative evolution. Crafting solutions that engage and elevate.</p>
+                        <button class="panelelem border-[1px] px-3 py-2 border-[#555] font-[100] mt-6">Get Reviews</button>
+
+                        <div class="panelelem absolute bottom-10">
+                            <h3 class="text-xl">Innovating Design</h3>
+                            <p class="text-sm mt-3">Connecting ideas to foster creativity. Designing impactful experiences that resonate.
+                                Feel free to mix and match these sections to suit your website's design needs!
+                            </p>
+                            <button class="bg-black text-white px-7 text-sm mt-4 py-4 font-[100]" >experiences</button>
+                        </div>
+                </div>
+                <div class="absolute z-[2] panelism text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-6xl tracking-tighter opacity-0 ">
+                    &copy;Panelism <span class="line w-10 h-1 inline-block"> 2048</span>
+                </div>
+            </div>
+        </div>
+        <div class="w-full px-10 py-32 bg-white">
+            <h1 class="text-5xl tracking-tighter">&reg;Our Recent works.</h1>
+            <div class="w-1/2  headings flex flex-col gap-6 p-3 mt-24">
+                <h3 class="text-3xl">Creative Minds</h3>
+                <h3 class="text-3xl">Inspiring Change</h3>
+                <h3 class="text-3xl">Innovative Solutions</h3>
+                <h3 class="text-3xl">Global Impact</h3>
+                <h3 class="text-3xl">Future Vision</h3>
+                <h3 class="text-3xl">Design Thinking</h3>
+                <h3 class="text-3xl">Crafting Experiences</h3>
+                <h3 class="text-3xl">Digital Transformation</h3>
+                <h3 class="text-3xl">Smart Technology</h3>
+                <h3 class="text-3xl">Empowering People</h3>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const canvas=document.querySelector('canvas')
+        const context=canvas.getContext("2d")
+        let frames={
+            currentIndex:0,
+            maxIndex:1345
+        }
+        let imagesloaded=0
+        const images=[]
+        function preloadImages(){
+            for(var i=1;i<=frames.maxIndex;i++){
+                const imageUrl=`./frames/frame_${i.toString().padStart(4,"0")}.jpeg`
+                const img=new Image()
+                img.src=imageUrl
+                img.onload=()=>{
+                    imagesloaded++
+                    if(imagesloaded === frames.maxIndex){
+                        loadImage(frames.currentIndex)
+                    }
+                }
+                images.push(img)
+            }
+        }
+
+        function loadImage(index){
+            if(index>0 && index<frames.maxIndex){
+                const img=images[index]
+                canvas.width=window.innerWidth
+                canvas.height=window.innerHeight
+
+                const scaleX=canvas.width/img.width;
+                const scaleY=canvas.height/img.height
+                const scale=Math.max(scaleX,scaleY)
+
+                const newWidth=img.width*scale
+                const newHeight=img.height*scale
+
+                const offsetX=(canvas.width - newWidth)/2
+                const offsetY=(canvas.height - newHeight)/2
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.imageSmoothingEnabled=true
+                context.imageSmoothingQuality="high"
+                context.drawImage(img,offsetX, offsetY, newWidth, newHeight)
+                frames.currentIndex=index
+            }
+        }
+
+        function startAnimation(){
+            var tl=gsap.timeline({
+                scrollTrigger:{
+                    trigger:".parent",
+                    start:"top top",
+                    end: "bottom bottom",
+                    scrub:2,
+                    maskers:true
+                }
+            })
+
+            function updateFrame(index){
+                return{
+                    currentIndex:index,
+                    ease:"linear",
+                    onUpdate:function(){
+                    loadImage(Math.ceil(frames.currentIndex))
+                }
+            }
+            }
+
+            tl
+            .to(frames,updateFrame(80),"first")
+            .to(".animate1",{opacity:0 ,ease:"linear"},"first")
+
+            .to(frames,updateFrame(160),"second")
+            .to(".animate2",{opacity:1 ,ease:"linear"},"second")
+
+            .to(frames,updateFrame(240),"third")
+            .to(".animate2",{opacity:1 ,ease:"linear"},"third")
+
+            .to(frames,updateFrame(320),"fourth")
+            .to(".animate2",{opacity:0 ,ease:"linear"},"fourth")
+
+            .to(frames,updateFrame(400),"fifth")
+            .to(".animate3",{opacity:1 ,ease:"linear"},"fifth")
+
+            .to(frames,updateFrame(480),"sixth")
+            .to(".animate3",{opacity:1 ,ease:"linear"},"sixth")
+
+            .to(frames,updateFrame(560),"seven")
+            .to(".animate3",{opacity:0 ,ease:"linear"},"seven")
+
+            .to(frames,updateFrame(640),"eight")
+            .to(".panel",{x:"0%" ,ease:"expo"},"eight")
+
+            .to(frames,updateFrame(720),"nine")
+            .to(".panel",{x:"0%" ,ease:"expo"},"nine")
+
+            .to(frames,updateFrame(800),"ten")
+            .to(".panel",{opacity:0 ,ease:"linear"},"ten")
+
+            .to(frames,updateFrame(900),"eleven")
+            .to("canvas",{scale:.5,ease:"linear"},"eleven")
+
+            .to(frames,updateFrame(1010),"twelve")
+            .to(".panelism",{opacity:1,ease:"expo"},"twelve")
+
+            .to(frames,updateFrame(1130),"thirteen")
+            .to("canvas",{scale:1,ease:"linear"},"thirteen")
+
+            .to(frames,updateFrame(1230),"fourteen")
+            .to(".panelism",{scale:2,ease:"circ"},"fourteen")
+            
+            .to(frames,updateFrame(1345),"fourteen")
+            .to(".panelism",{scale:2,ease:"circ"},"fourteen")
+        }
+
+
+        window.addEventListener("resize",function(){
+            loadImage(Math.floor(frames.currentIndex))
+        })
+
+        preloadImages()
+        startAnimation()
+
+        document.querySelectorAll(".headings h3").forEach(function(elem){
+            gsap.from(elem,{
+                scrollTrigger:{
+                    trigger:elem,
+                    start:"top 90%",
+                    end:"bottom 20%",
+                    scrub:2
+                },
+                opacity:.3
+            })
+        })
+    </script>
+</body>
+</html>
